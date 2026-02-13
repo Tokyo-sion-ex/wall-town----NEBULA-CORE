@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEBULA CORE · 超本格SFクリッカー</title>
+  <!-- メインスタイルはCSSファイルで分離（超本格構造） -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- 量子フォント＆アイコン -->
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="nebula-orbiter">
+    <!-- 恒星間ヘッダー -->
+    <header class="command-deck">
+      <div class="title-mission">
+        <h1>🌌 NEBULA CORE</h1>
+        <div class="quantum-badge">
+          <span class="pulse-dot"></span> QUANTUM-LOCK v2.7.1
+        </div>
+      </div>
+      <div class="gravity-index">
+        <span>重力勾配</span>
+        <span id="gravityWell">0.981</span>
+      </div>
+    </header>
+
+    <!-- メインエネルギー トランスデューサー -->
+    <section class="energy-transducer">
+      <div class="plasma-reservoir">
+        <div class="core-symbol">⚡</div>
+        <div class="energy-metrics">
+          <span class="resource-label">テラフォトンエネルギー</span>
+          <span class="energy-value" id="energyDisplay">1,000.00</span>
+          <span class="unit">TF</span>
+        </div>
+      </div>
+
+      <!-- 超本格クリックコア：時空共振器 -->
+      <div class="singularity-core" id="clickCore">
+        <div class="event-horizon"></div>
+        <div class="accretion-disk"></div>
+        <span class="core-glyph">⍟</span>
+        <span class="click-power">+1.618 TF</span>
+        <div class="gravitational-lensing"></div>
+      </div>
+    </section>
+
+    <!-- 軌道ステータス 3次元ホロパネル -->
+    <section class="holo-panels">
+      <div class="panel-card">
+        <div class="panel-icon">📡</div>
+        <div class="panel-content">
+          <span class="panel-label">每秒崩壊率</span>
+          <span class="panel-value" id="epsDisplay">0.00</span>
+          <span class="panel-unit">TF/s</span>
+        </div>
+        <div class="scan-line"></div>
+      </div>
+      <div class="panel-card">
+        <div class="panel-icon">🛰️</div>
+        <div class="panel-content">
+          <span class="panel-label">探査ドローン</span>
+          <span class="panel-value" id="droneCountDisplay">0</span>
+          <span class="panel-unit">機</span>
+        </div>
+      </div>
+      <div class="panel-card">
+        <div class="panel-icon">⚛️</div>
+        <div class="panel-content">
+          <span class="panel-label">融合炉心</span>
+          <span class="panel-value" id="reactorCountDisplay">0</span>
+          <span class="panel-unit">基</span>
+        </div>
+      </div>
+      <div class="panel-card">
+        <div class="panel-icon">🧬</div>
+        <div class="panel-content">
+          <span class="panel-label">増幅係数</span>
+          <span class="panel-value" id="multiplierDisplay">1.00</span>
+          <span class="panel-unit">x</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- アップグレード・モジュール：研究所 & 建造ドック -->
+    <section class="upgrade-complex">
+      <div class="section-carrier">
+        <div class="carrier-id">🪐 深宇宙工廠 | 自律増殖艦隊</div>
+        <div class="carrier-wave"></div>
+      </div>
+
+      <div class="upgrade-grid">
+        <!-- ドローン購入モジュール -->
+        <div class="upgrade-module" id="droneModule">
+          <div class="module-header">
+            <span class="module-icon">🛸</span>
+            <span class="module-name">自律探査ドローン</span>
+            <span class="module-badge">量産型</span>
+          </div>
+          <div class="module-spec">
+            <span>出力 ▸ 0.3 TF/s</span>
+            <span>次元 ▸ 3.5</span>
+          </div>
+          <div class="module-stats">
+            <div class="owned-indicator">
+              <span>稼働数</span>
+              <span id="droneOwned">0</span>
+            </div>
+            <div class="cost-indicator" id="droneCostDisplay">
+              <span class="cost-icon">🔷</span>
+              <span id="droneCostValue">15.00</span>
+              <span>TF</span>
+            </div>
+          </div>
+          <button class="purchase-btn" id="buyDroneBtn">
+            <span>⚡ 調達</span>
+          </button>
+          <div class="module-glow"></div>
+        </div>
+
+        <!-- 融合リアクター モジュール -->
+        <div class="upgrade-module" id="reactorModule">
+          <div class="module-header">
+            <span class="module-icon">♢</span>
+            <span class="module-name">量子融合リアクター</span>
+            <span class="module-badge">高効率</span>
+          </div>
+          <div class="module-spec">
+            <span>出力 ▸ 2.5 TF/s</span>
+            <span>次元 ▸ 4.7</span>
+          </div>
+          <div class="module-stats">
+            <div class="owned-indicator">
+              <span>稼働数</span>
+              <span id="reactorOwned">0</span>
+            </div>
+            <div class="cost-indicator" id="reactorCostDisplay">
+              <span class="cost-icon">🔶</span>
+              <span id="reactorCostValue">80.00</span>
+              <span>TF</span>
+            </div>
+          </div>
+          <button class="purchase-btn" id="buyReactorBtn">
+            <span>⚛️ 起動</span>
+          </button>
+        </div>
+
+        <!-- 増幅モジュール (特殊アップグレード: 全生産2倍) 超本格 -->
+        <div class="upgrade-module amplifier-module" id="amplifierModule">
+          <div class="module-header">
+            <span class="module-icon">🌀</span>
+            <span class="module-name">重力特異点増幅器</span>
+            <span class="module-badge">伝説</span>
+          </div>
+          <div class="module-spec">
+            <span>効果 ▸ 全出力 ×2</span>
+            <span>位相 ▸ 9.9</span>
+          </div>
+          <div class="module-stats">
+            <div class="owned-indicator">
+              <span>活性化</span>
+              <span id="ampOwned">0</span>
+            </div>
+            <div class="cost-indicator" id="ampCostDisplay">
+              <span class="cost-icon">💎</span>
+              <span id="ampCostValue">650.00</span>
+              <span>TF</span>
+            </div>
+          </div>
+          <button class="purchase-btn amp-btn" id="buyAmpBtn">
+            <span>🌀 特異点発生</span>
+          </button>
+          <div class="quantum-fluctuation"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- フッター：ワームホールログ & テレメトリー -->
+    <footer class="telemetry">
+      <div class="log-stream">
+        <span id="eventLog">[システム] コア起動。クリックで時空歪曲。</span>
+      </div>
+      <div class="quantum-clock">
+        <span id="timestamp">T+ 0.00 s</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- スクリプトはTypeScriptとして分離。コンパイル後JSを読み込み（CodeSandbox対応） -->
+  <script src="gameEngine.js"></script>
+</body>
+</html>
